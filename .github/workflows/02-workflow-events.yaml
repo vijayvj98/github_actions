@@ -3,7 +3,7 @@ on:
   - push
 jobs:
   echo:
-    runs-on: ubutntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: "Show the trigger"
         run: echo "This workflow is triggered by ${{ github.event_name }} event"
