@@ -6,15 +6,16 @@ jobs:
   echo-hello:
     runs-on: ubuntu-latest
     steps:
-      run: echo "Hello, World!"
+      - run: echo "Hello, World!"
   
   echo-goodbye:
     runs-on: ubuntu-latest
     steps:
-      name: "Failed Step"
+      - name: "Failed Step"
         run: |
           echo "I"
           echo "will"
           echo "fail"
-      name: "Say Goodbye"
+          exit 1
+      - name: "Say Goodbye"
         run: echo "Goodbye!"
