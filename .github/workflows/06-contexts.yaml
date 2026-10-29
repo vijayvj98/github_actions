@@ -9,8 +9,14 @@ on:
                 default: false
             
 run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}
+env:
+    MY_WORKFLOW_VAR: "workflow"
+    MY_OVERWRITTEN_VAR: "workflow"
 jobs:
     echo-data:
+        env:
+            MY_WORKFLOW_VAR: "job"
+            MY_OVERWRITTEN_VAR: "job"
         runs-on: ubuntu-latest
         steps:
             - name: Display Information
@@ -24,4 +30,14 @@ jobs:
                 echo "Run Number: ${{ github.run_number }}"
             - name: Retreive Variable
               run: echo ${{ vars.MY_VAR}}
+            - name: Print Environment Variables
+              env:
+                MY_OVERWRITTEN_VAR: "step"
+              run: |
+                echo "MY_WORKFLOW_VAR: $MY_WORKFLOW_VAR"
+                echo "MY_OVERWRITTEN_VAR: $MY_OVERWRITTEN_VAR"
+            - name: Print variables
+              run: |
+                echo "MY_WORKFLOW_VAR: $MY_WORKFLOW_VAR"
+                echo "MY_OVERWRITTEN_VAR: $MY_OVERWRITTEN_VAR"
         
