@@ -6,6 +6,10 @@ jobs:
     echo1:
         runs-on: ubuntu-latest
         steps:
+            - name: Failing step
+              run: |
+                echo "This is the failing step"
+                exit 1
             - name: Print PR title
               run: echo "The PR title is ${{ github.event.pull_request.title }}"
             - name: Print PR Labels
