@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 jobs:
     backwards-compatibility:
-        runs-on: matrix.os
+        runs-on: ${{ matrix.os }}
         strategy:
             matrix:
                 node-version: ['24.x', '26.x']
