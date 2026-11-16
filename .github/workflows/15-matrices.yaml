@@ -15,7 +15,7 @@ jobs:
                     - node-version: '26.x'
                       os: ubuntu-latest
                       tag: 'experimental'
-            fail-fast: false
+            fail-fast: true
         steps:
             - name: Setup Node
               uses: actions/setup-node@v6
