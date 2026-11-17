@@ -43,8 +43,13 @@ jobs:
                 size: [small, large]
                 include:
                     - opacity: 50
+                    - color: rd
+                      opacity: 75
+                    - shape: circle
+                      opacity: 100
                     - color: red
                       shape: triangle
+
         steps:
             - name: Dummy Step
               run: |
