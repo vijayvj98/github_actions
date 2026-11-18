@@ -26,6 +26,7 @@ runs:
         key: node-modules-${{ hashFiles(format('{0}/node-modules/package-lock.json', inputs.working-directory)) }}
         path: ${{inputs.working-directory}}
     - name: Install Dependencies
+      working-directory: ${{ inputs.working-directory }}
       if: ${{ steps.cache.ouputs.cache-hit != 'true' }}
       shell: bash
       run: npm ci
